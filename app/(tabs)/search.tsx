@@ -1,41 +1,90 @@
-import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
-import { IconSymbol } from '@/components/ui/IconSymbol';
-import { StyleSheet } from 'react-native';
+import { ScrollView, StyleSheet, View } from 'react-native';
 
-export default function TabTwoScreen() {
+export type Items = {
+  des: string;
+  date: string;
+  channel: string;
+}[];
+
+const items: Items = [
+  {
+    des: 'Lorem ipsum dolor sit amet, consectetur adipiscing elitqwe. Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    date: '2023-10-01',
+    channel: 'React Native',
+  },
+  {
+    des: 'Lorem ipsum dolor sit amet, consectetur adipiscing elitqwe. Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    date: '2023-10-01',
+    channel: 'React Native',
+  },
+  {
+    des: 'Lorem ipsum dolor sit amet, consectetur adipiscing elitqwe. Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    date: '2023-10-01',
+    channel: 'React Native',
+  },
+];
+
+export default function SearchScreen() {
   return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: '#D0D0D0', dark: '#353636' }}
-      headerImage={
-        <IconSymbol
-          size={310}
-          color="#808080"
-          name="chevron.left.forwardslash.chevron.right"
-          style={styles.headerImage}
-        />
-      }
-    >
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Search</ThemedText>
-      </ThemedView>
-      <ThemedText>
-        This app includes example code to help you get started.
-      </ThemedText>
-    </ParallaxScrollView>
+    <View style={styles.view}>
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        showsHorizontalScrollIndicator={false}
+      >
+        <Row items={items} />
+      </ScrollView>
+    </View>
+  );
+}
+
+function Row({ items }: { items?: Items }) {
+  return (
+    <ThemedView style={styles.container}>
+      <ThemedText type="title"></ThemedText>
+      <View style={styles.panel}>
+        {items?.map((item, index) => (
+          <View key={index}>
+            <View style={styles.videoImage} />
+            <ThemedText type="defaultBold" style={styles.date}>
+              {item.channel}
+            </ThemedText>
+            <ThemedText type="default" numberOfLines={2} ellipsizeMode="tail">
+              {item.des}
+            </ThemedText>
+            <ThemedText type="date">{item.date}</ThemedText>
+          </View>
+        ))}
+      </View>
+    </ThemedView>
   );
 }
 
 const styles = StyleSheet.create({
-  headerImage: {
-    color: '#808080',
-    bottom: -90,
-    left: -35,
-    position: 'absolute',
+  date: {
+    marginBottom: 12,
+    marginTop: 12,
   },
-  titleContainer: {
-    flexDirection: 'row',
-    gap: 8,
+  view: {
+    paddingTop: 128,
+    paddingBottom: 80,
+    backgroundColor: '#fff',
+  },
+  container: {
+    width: '100%',
+    paddingTop: 8,
+    paddingBottom: 16,
+  },
+  panel: {
+    paddingLeft: 24,
+    paddingRight: 24,
+  },
+  videoImage: {
+    backgroundColor: 'darkgray',
+    minHeight: 200,
+    borderRadius: 14,
+    marginTop: 16,
+    marginBottom: 8,
   },
 });

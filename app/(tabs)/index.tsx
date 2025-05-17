@@ -2,7 +2,7 @@ import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 import { ScrollView, StyleSheet, View } from 'react-native';
 
-type Items = {
+export type Items = {
   des: string;
   date: string;
 }[];
@@ -48,7 +48,9 @@ function Row({
 }) {
   return (
     <ThemedView style={[styles.container, isLast && { borderBottomWidth: 0 }]}>
-      <ThemedText type="title">{title}</ThemedText>
+      <ThemedText type="title" style={styles.title}>
+        {title}
+      </ThemedText>
       <ScrollView
         horizontal
         showsVerticalScrollIndicator={false}
@@ -71,6 +73,9 @@ function Row({
 }
 
 const styles = StyleSheet.create({
+  title: {
+    paddingLeft: 24,
+  },
   view: {
     paddingTop: 128,
     paddingBottom: 80,
