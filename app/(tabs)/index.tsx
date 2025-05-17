@@ -1,75 +1,103 @@
-import { Image } from 'expo-image';
-import { Platform, StyleSheet } from 'react-native';
-
-import { HelloWave } from '@/components/HelloWave';
-import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
+import { ScrollView, StyleSheet, View } from 'react-native';
+
+type Items = {
+  des: string;
+  date: string;
+}[];
+
+const items: Items = [
+  {
+    des: 'Lorem ipsum dolor sit amet, consectetur adipiscing elitqwe. Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    date: '2023-10-01',
+  },
+  {
+    des: 'Lorem ipsum dolor sit amet, consectetur adipiscing elitqwe. Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    date: '2023-10-01',
+  },
+  {
+    des: 'Lorem ipsum dolor sit amet, consectetur adipiscing elitqwe. Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    date: '2023-10-01',
+  },
+];
 
 export default function HomeScreen() {
   return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
-      headerImage={
-        <Image
-          source={require('@/assets/images/partial-react-logo.png')}
-          style={styles.reactLogo}
-        />
-      }>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Welcome!</ThemedText>
-        <HelloWave />
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
-        <ThemedText>
-          Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
-          Press{' '}
-          <ThemedText type="defaultSemiBold">
-            {Platform.select({
-              ios: 'cmd + d',
-              android: 'cmd + m',
-              web: 'F12',
-            })}
-          </ThemedText>{' '}
-          to open developer tools.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 2: Explore</ThemedText>
-        <ThemedText>
-          {`Tap the Explore tab to learn more about what's included in this starter app.`}
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
-        <ThemedText>
-          {`When you're ready, run `}
-          <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText> to get a fresh{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> directory. This will move the current{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
-          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
-        </ThemedText>
-      </ThemedView>
-    </ParallaxScrollView>
+    <View style={styles.view}>
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        showsHorizontalScrollIndicator={false}
+      >
+        <Row title="React Native" items={items} />
+        <Row title="React" items={items} />
+        <Row title="Typescript" items={items} isLast={true} />
+      </ScrollView>
+    </View>
+  );
+}
+
+function Row({
+  title,
+  items,
+  isLast,
+}: {
+  title: string;
+  items?: Items;
+  isLast?: boolean;
+}) {
+  return (
+    <ThemedView style={[styles.container, isLast && { borderBottomWidth: 0 }]}>
+      <ThemedText type="title">{title}</ThemedText>
+      <ScrollView
+        horizontal
+        showsVerticalScrollIndicator={false}
+        showsHorizontalScrollIndicator={false}
+      >
+        <View style={styles.panel}>
+          {items?.map((item, index) => (
+            <View key={index} style={styles.col}>
+              <View style={styles.videoImage} />
+              <ThemedText type="default" numberOfLines={2} ellipsizeMode="tail">
+                {item.des}
+              </ThemedText>
+              <ThemedText type="date">{item.date}</ThemedText>
+            </View>
+          ))}
+        </View>
+      </ScrollView>
+    </ThemedView>
   );
 }
 
 const styles = StyleSheet.create({
-  titleContainer: {
+  view: {
+    paddingTop: 128,
+    paddingBottom: 80,
+    backgroundColor: '#fff',
+  },
+  container: {
+    width: '100%',
+    paddingTop: 8,
+    paddingBottom: 16,
+    borderBottomWidth: 2,
+    borderBottomColor: '#2B2D42',
+  },
+  panel: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 8,
+    gap: 16,
+    paddingLeft: 24,
+    paddingRight: 24,
   },
-  stepContainer: {
-    gap: 8,
+  col: {
+    maxWidth: 180,
+  },
+  videoImage: {
+    backgroundColor: 'darkgray',
+    minHeight: 112,
+    borderRadius: 14,
+    marginTop: 16,
     marginBottom: 8,
-  },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: 'absolute',
   },
 });

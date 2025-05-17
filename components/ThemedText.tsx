@@ -1,11 +1,10 @@
-import { StyleSheet, Text, type TextProps } from 'react-native';
-
 import { useThemeColor } from '@/hooks/useThemeColor';
+import { StyleSheet, Text, type TextProps } from 'react-native';
 
 export type ThemedTextProps = TextProps & {
   lightColor?: string;
   darkColor?: string;
-  type?: 'default' | 'title' | 'defaultSemiBold' | 'subtitle' | 'link';
+  type?: 'default' | 'title' | 'date';
 };
 
 export function ThemedText({
@@ -23,9 +22,7 @@ export function ThemedText({
         { color },
         type === 'default' ? styles.default : undefined,
         type === 'title' ? styles.title : undefined,
-        type === 'defaultSemiBold' ? styles.defaultSemiBold : undefined,
-        type === 'subtitle' ? styles.subtitle : undefined,
-        type === 'link' ? styles.link : undefined,
+        type === 'date' ? styles.date : undefined,
         style,
       ]}
       {...rest}
@@ -34,27 +31,26 @@ export function ThemedText({
 }
 
 const styles = StyleSheet.create({
-  default: {
-    fontSize: 16,
-    lineHeight: 24,
-  },
-  defaultSemiBold: {
-    fontSize: 16,
-    lineHeight: 24,
-    fontWeight: '600',
-  },
   title: {
-    fontSize: 32,
-    fontWeight: 'bold',
-    lineHeight: 32,
+    fontSize: 18,
+    fontWeight: 600,
+    lineHeight: 24,
+    letterSpacing: 0.2,
+    paddingLeft: 24,
   },
-  subtitle: {
-    fontSize: 20,
-    fontWeight: 'bold',
+  default: {
+    fontSize: 12,
+    lineHeight: 12,
+    fontWeight: 500,
+    letterSpacing: 0.2,
   },
-  link: {
-    lineHeight: 30,
-    fontSize: 16,
-    color: '#0a7ea4',
+  date: {
+    textAlign: 'right',
+    fontSize: 10,
+    lineHeight: 24,
+    letterSpacing: 0.2,
+    fontWeight: 400,
   },
 });
+
+// font-family: Poppins;
