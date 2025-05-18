@@ -1,6 +1,7 @@
-import { ThemedView } from '@/components/ThemedView';
+import { ThemedView } from '@/components/basic/ThemedView';
 import { useBottomTabOverflow } from '@/components/ui/TabBarBackground';
-import { HEADER_HEIGHT, ParallaxScrollViewProps } from '@/constants/Types';
+import { HEADER_HEIGHT } from '@/constants/Consts';
+import { ParallaxScrollViewProps } from '@/constants/Types';
 import { useColorScheme } from '@/hooks/useColorScheme';
 import { StyleSheet } from 'react-native';
 import Animated, {

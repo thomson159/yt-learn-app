@@ -1,19 +1,7 @@
+import { BASE_URL } from '@/constants/Consts';
+import { YouTubeVideo } from '@/constants/Types';
 import axios from 'axios';
 import { YOUTUBE_API_KEY } from '../config';
-
-const BASE_URL = 'https://www.googleapis.com/youtube/v3';
-
-export type YouTubeVideo = {
-  snippet: {
-    publishTime: string;
-    title: string;
-    thumbnails: {
-      default: {
-        url: string;
-      };
-    };
-  };
-};
 
 export async function searchVideos(query: string): Promise<YouTubeVideo[]> {
   const response = await axios.get(`${BASE_URL}/search`, {
@@ -25,5 +13,6 @@ export async function searchVideos(query: string): Promise<YouTubeVideo[]> {
       type: 'video',
     },
   });
+
   return response.data.items;
 }

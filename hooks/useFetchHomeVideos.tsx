@@ -1,9 +1,9 @@
-import { searchVideos, YouTubeVideo } from '@/api/youtubeApi';
+import { searchVideos } from '@/api/youtubeApi';
 import { capitalize } from '@/constants/Fns';
-import { ItemsByCategory, queries } from '@/constants/Types';
+import { ItemsByCategory, Queries, YouTubeVideo } from '@/constants/Types';
 import { useEffect, useState } from 'react';
 
-export function useFetchHomeVideos() {
+export function useFetchHomeVideos(queries: Queries) {
   const [itemsByCategory, setItemsByCategory] = useState<ItemsByCategory>({});
 
   useEffect(() => {
@@ -25,7 +25,7 @@ export function useFetchHomeVideos() {
     }
 
     fetchAllVideos();
-  }, []);
+  }, [queries]);
 
   return itemsByCategory;
 }

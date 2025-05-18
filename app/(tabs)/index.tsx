@@ -1,11 +1,12 @@
-import { HomeRow } from '@/components/HomeRow';
+import { HomeRow } from '@/components/home/HomeRow';
+import { queries } from '@/constants/Consts';
 import { Item } from '@/constants/Types';
 import { useFetchHomeVideos } from '@/hooks/useFetchHomeVideos';
 import { ScrollView } from 'react-native';
 import styledNative from 'styled-components/native';
 
 export default function HomeScreen() {
-  const itemsByCategory = useFetchHomeVideos();
+  const itemsByCategory = useFetchHomeVideos(queries);
 
   return (
     <ViewWrapper>
