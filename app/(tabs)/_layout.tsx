@@ -1,3 +1,6 @@
+// TODO: Used MaterialIcons instead of custom icons from assets for faster development.
+// Can replace with custom SVG icons from assets later for better branding and design.
+
 import { HapticTab } from '@/components/basic/HapticTab';
 import { Navbar } from '@/components/Navbar';
 import { IconSymbol } from '@/components/ui/IconSymbol';

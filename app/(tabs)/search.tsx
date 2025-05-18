@@ -1,3 +1,5 @@
+// TODO: Consider adding a loading animation here for better UX while waiting for API data reload.
+
 import { ThemedText } from '@/components/basic/ThemedText';
 import { Item } from '@/components/search/Item';
 import { useSearch } from '@/components/SearchProvider';

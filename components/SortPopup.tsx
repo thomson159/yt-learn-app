@@ -1,3 +1,5 @@
+// TODO: Sorting is currently done only on the frontend. Consider implementing sorting via API for better performance with large datasets.
+
 import { SortOption } from '@/constants/Types';
 import React from 'react';
 import { Portal } from 'react-native-portalize';
@@ -103,6 +105,4 @@ const PopupOverlay = styledNative.View`
   background-color: rgba(0, 0, 0, 0.8);
   justify-content: center;
   align-items: center;
-  z-index: 9999;
-  elevation: 20;
 `;

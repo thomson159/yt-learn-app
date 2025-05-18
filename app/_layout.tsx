@@ -28,7 +28,14 @@ export default function RootLayout() {
           <Stack>
             <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
             <Stack.Screen name="+not-found" />
-            <Stack.Screen name="video" options={{ title: '' }} />
+            <Stack.Screen
+              name="video"
+              options={{
+                title: '',
+                headerBackTitle: 'Back',
+                headerTintColor: '#2B2D42',
+              }}
+            />
           </Stack>
           <StatusBar style={theme === 'dark' ? 'light' : 'dark'} />
         </ThemeProvider>
