@@ -1,17 +1,19 @@
-import { SearchItemType } from '@/constants/Types';
+import { formatDate } from '@/constants/Fns';
+import { Props } from '@/constants/Types';
+import { Image } from 'react-native';
 import styledNative from 'styled-components/native';
 import { ThemedText } from '../basic/ThemedText';
 import { ThemedView } from '../basic/ThemedView';
 
-export function SearchItem({ des, date, channel }: SearchItemType) {
+export function Item({ item }: Props) {
   return (
     <ItemWrapper>
-      <VideoImage />
-      <ChannelText>{channel}</ChannelText>
+      <Thumbnail source={{ uri: item.thumbnail }} />
+      <ChannelText>{item.channel}</ChannelText>
       <DescriptionText numberOfLines={2} ellipsizeMode="tail">
-        {des}
+        {item.title}
       </DescriptionText>
-      <DateText>{date}</DateText>
+      <DateText>{formatDate(item.date)}</DateText>
     </ItemWrapper>
   );
 }
@@ -24,16 +26,15 @@ const ItemWrapper = styledNative(ThemedView)`
   padding-right: 24px;
 `;
 
-const VideoImage = styledNative.View`
-  background-color: darkgray;
-  min-height: 200px;
+const Thumbnail = styledNative(Image)`
   border-radius: 14px;
-  margin-top: 16px;
-  margin-bottom: 8px;
+  width: 100%;
+  height: 200px;
 `;
 
 const ChannelText = styledNative(ThemedText).attrs({ type: 'defaultBold' })`
   margin-top: 16px;
+  margin-bottom: 8px;
 `;
 
 const DescriptionText = styledNative(ThemedText).attrs({ type: 'default' })`

@@ -9,28 +9,19 @@ export type Queries = [
   'firebase',
 ];
 
+export type Props = {
+  item: Item;
+};
+
 export type Item = {
   date: string;
   title: string;
   thumbnail: string;
+  channel: string;
 };
 
 export type ItemsByCategory = {
   [key: string]: Item[];
-};
-
-export type HomeRowType = {
-  title: string;
-  items: Item[];
-  isLast: boolean;
-};
-
-export type HomeItemType = { item: Item };
-
-export type SearchItemType = {
-  des: string;
-  date: string;
-  channel: string;
 };
 
 export type ParallaxScrollViewProps = PropsWithChildren<{
@@ -48,8 +39,9 @@ export type YouTubeVideo = {
   snippet: {
     publishTime: string;
     title: string;
+    channelTitle: string;
     thumbnails: {
-      default: {
+      high: {
         url: string;
       };
     };

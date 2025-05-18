@@ -1,26 +1,22 @@
-import { HomeItemType } from '@/constants/Types';
+import { formatDate } from '@/constants/Fns';
+import { Props } from '@/constants/Types';
+import { Image } from 'react-native';
 import styledNative from 'styled-components/native';
 import { ThemedText } from '../basic/ThemedText';
 
-export function HomeItem({ item }: HomeItemType) {
+export function Item({ item }: Props) {
   return (
-    <Col>
+    <ItemWrapper>
       <Thumbnail source={{ uri: item.thumbnail }} />
       <ThemedText type="default" numberOfLines={2} ellipsizeMode="tail">
         {item.title}
       </ThemedText>
-      <ThemedText type="date">
-        {new Date(item.date).toLocaleDateString('en-US', {
-          year: 'numeric',
-          month: 'short',
-          day: 'numeric',
-        })}
-      </ThemedText>
-    </Col>
+      <ThemedText type="date">{formatDate(item.date)}</ThemedText>
+    </ItemWrapper>
   );
 }
 
-const Col = styledNative.View`
+const ItemWrapper = styledNative.View`
   max-width: 180px;
 `;
 

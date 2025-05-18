@@ -1,24 +1,18 @@
-import { HomeRow } from '@/components/home/HomeRow';
-import { queries } from '@/constants/Consts';
+import { Row } from '@/components/home/Row';
 import { Item } from '@/constants/Types';
-import { useFetchHomeVideos } from '@/hooks/useFetchHomeVideos';
+import { useFetchVideos } from '@/hooks/useFetchVideos';
 import { ScrollView } from 'react-native';
 import styledNative from 'styled-components/native';
 
 export default function HomeScreen() {
-  const itemsByCategory = useFetchHomeVideos(queries);
+  const itemsByCategory = useFetchVideos();
 
   return (
     <ViewWrapper>
       <ScrollView showsVerticalScrollIndicator={false}>
         {Object.entries(itemsByCategory).map(
-          ([title, items]: [string, Item[]], index, arr) => (
-            <HomeRow
-              key={title}
-              title={title}
-              items={items}
-              isLast={index === arr.length - 1}
-            />
+          ([title, items]: [string, Item[]], index) => (
+            <Row key={index} title={title} items={items} />
           ),
         )}
       </ScrollView>
@@ -26,8 +20,9 @@ export default function HomeScreen() {
   );
 }
 
-const ViewWrapper = styledNative.View`
+export const ViewWrapper = styledNative.View`
   padding-top: 128px;
   padding-bottom: 80px;
   background-color: #fff;
+  min-height: 100%;
 `;

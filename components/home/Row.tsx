@@ -1,12 +1,14 @@
-import { HomeRowType } from '@/constants/Types';
+import { Item as ItemType } from '@/constants/Types';
 import React from 'react';
 import { ScrollView } from 'react-native';
 import styledNative from 'styled-components/native';
 import { ThemedText } from '../basic/ThemedText';
 import { ThemedView } from '../basic/ThemedView';
-import { HomeItem } from './HomeItem';
+import { Item } from './Item';
 
-export function HomeRow({ title, items }: HomeRowType) {
+type Props = { title: string; items: ItemType[] };
+
+export function Row({ title, items }: Props) {
   return (
     <Container>
       <ThemedText type="title" style={{ paddingLeft: 24 }}>
@@ -19,7 +21,7 @@ export function HomeRow({ title, items }: HomeRowType) {
       >
         <Panel>
           {items.map((item, index) => (
-            <HomeItem key={index} item={item} />
+            <Item key={index} item={item} />
           ))}
         </Panel>
       </ScrollView>

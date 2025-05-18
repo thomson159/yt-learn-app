@@ -1,22 +1,11 @@
-import { SearchItem } from '@/components/search/SearchItem';
+import { Item } from '@/components/search/Item';
+import { useSearchVideos } from '@/hooks/useSearchVideos ';
 import { ScrollView } from 'react-native';
-import styledNative from 'styled-components/native';
-
-export type Items = {
-  des: string;
-  date: string;
-  channel: string;
-}[];
-
-const items: Items = [
-  {
-    des: 'Lorem ipsum dolor sit amet, consectetur adipiscing elitqwe. Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-    date: '2023-10-01',
-    channel: 'React Native',
-  },
-];
+import { ViewWrapper } from '.';
 
 export default function SearchScreen() {
+  const items = useSearchVideos();
+
   return (
     <ViewWrapper>
       <ScrollView
@@ -24,15 +13,9 @@ export default function SearchScreen() {
         showsHorizontalScrollIndicator={false}
       >
         {items.map((item, index) => (
-          <SearchItem key={index} {...item} />
+          <Item key={index} item={item} />
         ))}
       </ScrollView>
     </ViewWrapper>
   );
 }
-
-const ViewWrapper = styledNative.View`
-  padding-top: 128px;
-  padding-bottom: 80px;
-  background-color: #fff;
-`;
