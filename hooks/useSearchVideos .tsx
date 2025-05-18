@@ -17,6 +17,7 @@ export function useSearchVideos() {
       try {
         const videos = await searchVideos(query);
         const formatted = videos.map((video: YouTubeVideo) => ({
+          id: video.id,
           date: video.snippet.publishTime,
           title: video.snippet.title,
           thumbnail: video.snippet.thumbnails.high.url,

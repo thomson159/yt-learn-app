@@ -13,7 +13,7 @@ import { Host } from 'react-native-portalize';
 import 'react-native-reanimated';
 
 export default function RootLayout() {
-  const [theme] = useState<'dark' | 'light'>('light');
+  const [theme] = useState<'dark' | 'light'>('light'); // zmiana na dynamiczny
   const [loaded] = useFonts({
     SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
   });

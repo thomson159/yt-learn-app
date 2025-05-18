@@ -7,6 +7,7 @@ export async function searchVideos(query: string): Promise<YouTubeVideo[]> {
 
   return [
     {
+      id: '1',
       snippet: {
         publishTime: '2023-05-01T00:00:00Z',
         title: `Video 1 "${query}, Lorem Ipsum is simply dummy text of the printing Lorem Ipsum is simply dummy text of the printing"`,
@@ -24,6 +25,7 @@ export async function searchVideos(query: string): Promise<YouTubeVideo[]> {
       },
     },
     {
+      id: '2',
       snippet: {
         publishTime: '2023-01-01T00:00:00Z',
         title: `Video 2 "${query}, Lorem Ipsum is simply dummy text of the printing Lorem Ipsum is simply dummy text of the printing"`,
@@ -41,6 +43,7 @@ export async function searchVideos(query: string): Promise<YouTubeVideo[]> {
       },
     },
     {
+      id: '3',
       snippet: {
         publishTime: '2023-10-01T00:00:00Z',
         title: `Video 3 "${query}, Lorem Ipsum is simply dummy text of the printing Lorem Ipsum is simply dummy text of the printing"`,

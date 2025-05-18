@@ -16,6 +16,7 @@ export function useFetchVideos() {
         queries.forEach((query, i) => {
           newItemsByCategory[capitalize(query)] = results[i].map(
             (video: YouTubeVideo) => ({
+              id: video.id,
               date: video.snippet.publishTime,
               title: video.snippet.title,
               thumbnail: video.snippet.thumbnails.high.url,

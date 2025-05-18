@@ -1,54 +1,54 @@
-import { ThemedText } from '@/components/basic/ThemedText';
+import NotesEditor from '@/components/video/NotesEditor';
+import TabsRow from '@/components/video/TabsRow';
+import VideoDetails from '@/components/video/VideoDetails';
+import VideoHeader from '@/components/video/VideoHeader';
 import { Item } from '@/constants/Types';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useLocalSearchParams } from 'expo-router';
-// import { useRef } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-// import Video, { VideoRef } from 'react-native-video';
+import { useEffect, useState } from 'react';
+import styledNative from 'styled-components/native';
 
 export default function VideoSreen() {
   const params: Item = useLocalSearchParams();
-  // const videoRef = useRef<VideoRef>(null);
+  const [activeTab, setActiveTab] = useState<'details' | 'notes'>('details');
+  const [note, setNote] = useState('');
+  const STORAGE_KEY = `note_${params.id}`;
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const savedNote = await AsyncStorage.getItem(STORAGE_KEY);
+        if (savedNote !== null) setNote(savedNote);
+      } catch {}
+    })();
+  }, [STORAGE_KEY]);
+
+  const saveNote = async () => {
+    try {
+      await AsyncStorage.setItem(STORAGE_KEY, note);
+    } catch {}
+  };
 
   return (
-    <View style={styles.container}>
+    <Container>
       {/* <Video
-        source={{ uri: 'https://www.w3schools.com/html/mov_bbb.mp4' }} // przykładowy link
-        ref={videoRef}
-        style={styles.video}
+        source={{ uri: 'https://www.w3schools.com/html/mov_bbb.mp4' }}
+        style={{ width: '100%', height: 200, marginBottom: 24 }}
         controls
         resizeMode="contain"
       /> */}
-
-      <ThemedText type="title" numberOfLines={1} ellipsizeMode="tail">
-        {params.title}
-      </ThemedText>
-      <ThemedText type="bigBold">{params.channel}</ThemedText>
-
-      <ThemedText type="small" style={{ marginBottom: 6, marginTop: 16 }}>
-        Description
-      </ThemedText>
-      <ThemedText type="default" style={{ marginBottom: 16 }}>
-        {params.description}
-      </ThemedText>
-
-      <ThemedText type="small" style={{ marginBottom: 6 }}>
-        Statistics
-      </ThemedText>
-      <Text>{params.viewCount} views</Text>
-      <Text>{params.likeCount} likes</Text>
-    </View>
+      <VideoHeader title={params.title} channel={params.channel} />
+      <TabsRow activeTab={activeTab} setActiveTab={setActiveTab} />
+      {activeTab === 'details' && <VideoDetails params={params} />}
+      {activeTab === 'notes' && (
+        <NotesEditor note={note} setNote={setNote} saveNote={saveNote} />
+      )}
+    </Container>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: '#FFFFFF',
-    minHeight: '100%',
-    padding: 24,
-  },
-  video: {
-    width: '100%',
-    height: 200,
-    marginBottom: 24,
-  },
-});
+const Container = styledNative.View`
+  background-color: #FFFFFF;
+  min-height: 100%;
+  padding: 24px;
+`;

@@ -10,6 +10,7 @@ export function Navbar({
   toggleTheme,
   inputValue,
   setInputValue,
+  setTheme,
 }: InnerLayoutProps) {
   const { setQuery } = useSearch();
   const router = useRouter();
@@ -39,13 +40,13 @@ export function Navbar({
   );
 }
 
-const NavWrapper = styledNative.View`
+const NavWrapper = styledNative.View<{ theme: 'dark' | 'light' }>`
   flex-direction: row;
   align-items: center;
   padding-top: 60px;
   padding-left: 24px;
   padding-right: 24px;
-  background-color: #ffffff;
+  background-color: ${({ theme }: any) => (theme === 'dark' ? '#222' : '#fff')};
   position: absolute;
   top: 0;
   left: 0;

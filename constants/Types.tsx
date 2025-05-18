@@ -13,6 +13,7 @@ export type Props = {
 };
 
 export type Item = {
+  id: string;
   date: string;
   title: string;
   thumbnail: string;
@@ -42,6 +43,7 @@ export type ThemedTextProps = TextProps & {
 };
 
 export type YouTubeVideo = {
+  id: string;
   snippet: {
     publishTime: string;
     title: string;
@@ -64,6 +66,7 @@ export type InnerLayoutProps = {
   toggleTheme: () => void;
   inputValue: string;
   setInputValue: (val: string) => void;
+  setTheme: (theme: 'dark' | 'light') => void;
 };
 
 export type SortOption =
