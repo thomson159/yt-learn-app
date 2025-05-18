@@ -1,5 +1,6 @@
 import { SortOption } from '@/constants/Types';
 import React from 'react';
+import { Portal } from 'react-native-portalize';
 import styledNative from 'styled-components/native';
 
 type Props = {
@@ -18,25 +19,27 @@ export const SortPopup = ({
   if (!visible) return null;
 
   return (
-    <PopupOverlay>
-      <PopupContainer>
-        <PopupTitle>Sort records by:</PopupTitle>
-        {['Upload date: latest', 'Upload date: oldest', 'Most popular'].map(
-          (option) => (
-            <RadioOption
-              key={option}
-              onPress={() => setTempSortBy(option as SortOption)}
-            >
-              <RadioCircle selected={tempSortBy === option} />
-              <RadioLabel>{option}</RadioLabel>
-            </RadioOption>
-          ),
-        )}
-        <ConfirmButton onPress={onConfirm}>
-          <ConfirmButtonText>Confirm</ConfirmButtonText>
-        </ConfirmButton>
-      </PopupContainer>
-    </PopupOverlay>
+    <Portal>
+      <PopupOverlay>
+        <PopupContainer>
+          <PopupTitle>Sort records by:</PopupTitle>
+          {['Upload date: latest', 'Upload date: oldest', 'Most popular'].map(
+            (option) => (
+              <RadioOption
+                key={option}
+                onPress={() => setTempSortBy(option as SortOption)}
+              >
+                <RadioCircle selected={tempSortBy === option} />
+                <RadioLabel>{option}</RadioLabel>
+              </RadioOption>
+            ),
+          )}
+          <ConfirmButton onPress={onConfirm}>
+            <ConfirmButtonText>Confirm</ConfirmButtonText>
+          </ConfirmButton>
+        </PopupContainer>
+      </PopupOverlay>
+    </Portal>
   );
 };
 
