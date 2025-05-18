@@ -13,6 +13,8 @@ import 'react-native-reanimated';
 
 export default function RootLayout() {
   const [theme, setTheme] = useState<'dark' | 'light'>('light');
+  const [query, setQuery] = useState('');
+
   const [loaded] = useFonts({
     SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
   });
@@ -33,6 +35,8 @@ export default function RootLayout() {
           autoCorrect={false}
           autoCapitalize="none"
           clearButtonMode="while-editing"
+          value={query}
+          onChangeText={setQuery}
         />
         <TouchableOpacity onPress={toggleTheme}>
           <IconSymbol

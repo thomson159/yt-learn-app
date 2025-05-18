@@ -1,11 +1,6 @@
+import { ThemedTextProps } from '@/constants/Types';
 import { useThemeColor } from '@/hooks/useThemeColor';
-import { StyleSheet, Text, type TextProps } from 'react-native';
-
-export type ThemedTextProps = TextProps & {
-  lightColor?: string;
-  darkColor?: string;
-  type?: 'default' | 'title' | 'date' | 'defaultBold';
-};
+import { StyleSheet, Text } from 'react-native';
 
 export function ThemedText({
   style,
