@@ -1,14 +1,27 @@
+import { Item } from '@/constants/Types';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useEffect, useState } from 'react';
 import styledNative from 'styled-components/native';
 
-export default function NotesEditor({
-  note,
-  setNote,
-  saveNote,
-}: {
-  note: string;
-  setNote: (text: string) => void;
-  saveNote: () => Promise<void>;
-}) {
+export default function NotesEditor({ params }: { params: Item }) {
+  const [note, setNote] = useState('');
+  const STORAGE_KEY = `note_${params.id}`;
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const savedNote = await AsyncStorage.getItem(STORAGE_KEY);
+        if (savedNote !== null) setNote(savedNote);
+      } catch {}
+    })();
+  }, [STORAGE_KEY]);
+
+  const saveNote = async () => {
+    try {
+      await AsyncStorage.setItem(STORAGE_KEY, note);
+    } catch {}
+  };
+
   return (
     <>
       <NoteInput
