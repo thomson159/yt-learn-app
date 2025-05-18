@@ -1,8 +1,6 @@
-// mockSearchVideos.ts
 import { YouTubeVideo } from '@/constants/Types';
 
 export async function searchVideos(query: string): Promise<YouTubeVideo[]> {
-  // Mock delay
   await new Promise((resolve) => setTimeout(resolve, 500));
 
   if (!query || query.trim() === '') return [];

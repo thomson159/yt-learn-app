@@ -9,5 +9,3 @@ export const queries: Queries = [
   'expo',
   'firebase',
 ];
-
-export const HEADER_HEIGHT = 250;

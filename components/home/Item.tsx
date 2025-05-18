@@ -11,7 +11,9 @@ export function Item({ item }: Props) {
       <ThemedText type="default" numberOfLines={2} ellipsizeMode="tail">
         {item.title}
       </ThemedText>
-      <ThemedText type="date">{formatDate(item.date)}</ThemedText>
+      <ThemedText type="date" style={{ textAlign: 'right' }}>
+        {formatDate(item.date)}
+      </ThemedText>
     </ItemWrapper>
   );
 }

@@ -1,4 +1,3 @@
-import { PropsWithChildren, ReactElement } from 'react';
 import { TextProps } from 'react-native';
 
 export type Queries = [
@@ -24,15 +23,16 @@ export type ItemsByCategory = {
   [key: string]: Item[];
 };
 
-export type ParallaxScrollViewProps = PropsWithChildren<{
-  headerImage: ReactElement;
-  headerBackgroundColor: { dark: string; light: string };
-}>;
-
 export type ThemedTextProps = TextProps & {
   lightColor?: string;
   darkColor?: string;
-  type?: 'default' | 'title' | 'date' | 'defaultBold';
+  type?:
+    | 'default'
+    | 'title'
+    | 'date'
+    | 'defaultBold'
+    | 'defaultBig'
+    | 'decorationLine';
 };
 
 export type YouTubeVideo = {
@@ -46,4 +46,11 @@ export type YouTubeVideo = {
       };
     };
   };
+};
+
+export type InnerLayoutProps = {
+  theme: 'dark' | 'light';
+  toggleTheme: () => void;
+  inputValue: string;
+  setInputValue: (val: string) => void;
 };

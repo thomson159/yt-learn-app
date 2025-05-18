@@ -37,10 +37,11 @@ const ChannelText = styledNative(ThemedText).attrs({ type: 'defaultBold' })`
   margin-bottom: 8px;
 `;
 
-const DescriptionText = styledNative(ThemedText).attrs({ type: 'default' })`
-  margin-top: 8px;
+const DescriptionText = styledNative(ThemedText).attrs({ type: 'defaultBig' })`
+  margin-top: 2px;
 `;
 
 const DateText = styledNative(ThemedText).attrs({ type: 'date' })`
+  text-align: right;
   margin-top: 12px;
 `;

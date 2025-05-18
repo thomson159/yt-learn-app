@@ -20,9 +20,10 @@ export default function HomeScreen() {
   );
 }
 
-export const ViewWrapper = styledNative.View`
-  padding-top: 128px;
-  padding-bottom: 80px;
+const ViewWrapper = styledNative.View`
+  padding-top: 108px;
+  margin-top: 10px;
+  padding-bottom: 90px;
   background-color: #fff;
   min-height: 100%;
 `;

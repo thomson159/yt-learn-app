@@ -1,19 +1,40 @@
 import { Item as ItemType } from '@/constants/Types';
+import { useRouter } from 'expo-router';
 import React from 'react';
-import { ScrollView } from 'react-native';
+import { ScrollView, View } from 'react-native';
 import styledNative from 'styled-components/native';
 import { ThemedText } from '../basic/ThemedText';
 import { ThemedView } from '../basic/ThemedView';
+import { ThemeButton } from '../InnerLayout';
+import { useSearch } from '../SearchProvider';
 import { Item } from './Item';
 
 type Props = { title: string; items: ItemType[] };
 
 export function Row({ title, items }: Props) {
+  const { setQuery } = useSearch();
+  const router = useRouter();
+
   return (
     <Container>
-      <ThemedText type="title" style={{ paddingLeft: 24 }}>
-        {title}
-      </ThemedText>
+      <View
+        style={{
+          flexDirection: 'row',
+          justifyContent: 'space-between',
+          paddingLeft: 24,
+          paddingRight: 24,
+        }}
+      >
+        <ThemedText type="title">{title}</ThemedText>
+        <ThemeButton
+          onPress={() => {
+            setQuery(title);
+            router.push('/search');
+          }}
+        >
+          <ThemedText type="decorationLine">Show more</ThemedText>
+        </ThemeButton>
+      </View>
       <ScrollView
         horizontal
         showsVerticalScrollIndicator={false}

@@ -1,5 +1,6 @@
 import { useSearch } from '@/components/SearchProvider';
 import { IconSymbol } from '@/components/ui/IconSymbol';
+import { InnerLayoutProps } from '@/constants/Types';
 import {
   DarkTheme,
   DefaultTheme,
@@ -7,15 +8,7 @@ import {
 } from '@react-navigation/native';
 import { Stack, useRouter } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, TextInput, TouchableOpacity, View } from 'react-native';
-import 'react-native-reanimated';
-
-type InnerLayoutProps = {
-  theme: 'dark' | 'light';
-  toggleTheme: () => void;
-  inputValue: string;
-  setInputValue: (val: string) => void;
-};
+import styledNative from 'styled-components/native';
 
 export function InnerLayout({
   theme,
@@ -28,9 +21,8 @@ export function InnerLayout({
 
   return (
     <ThemeProvider value={theme === 'dark' ? DarkTheme : DefaultTheme}>
-      <View style={styles.nav}>
-        <TextInput
-          style={styles.input}
+      <NavWrapper>
+        <StyledInput
           placeholder="Search videos"
           autoCorrect={false}
           autoCapitalize="none"
@@ -42,14 +34,14 @@ export function InnerLayout({
             router.push('/search');
           }}
         />
-        <TouchableOpacity onPress={toggleTheme}>
+        <ThemeButton onPress={toggleTheme}>
           <IconSymbol
             size={28}
             name={theme === 'dark' ? 'sun.max.fill' : 'moon.fill'}
             color="black"
           />
-        </TouchableOpacity>
-      </View>
+        </ThemeButton>
+      </NavWrapper>
       <Stack>
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         <Stack.Screen name="+not-found" />
@@ -59,29 +51,29 @@ export function InnerLayout({
   );
 }
 
-const styles = StyleSheet.create({
-  nav: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    paddingTop: 60,
-    paddingBottom: 16,
-    paddingHorizontal: 24,
-    backgroundColor: '#FFFFFF',
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    zIndex: 1,
-  },
-  input: {
-    flex: 1,
-    height: 44,
-    fontSize: 16,
-    backgroundColor: '#FFFFFF',
-    borderRadius: 8,
-    borderWidth: 2,
-    borderColor: '#2B2D42',
-    marginRight: 16,
-    paddingLeft: 16,
-  },
-});
+const NavWrapper = styledNative.View`
+  flex-direction: row;
+  align-items: center;
+  padding-top: 60px;
+  padding-left: 24px;
+  padding-right: 24px;
+  background-color: #ffffff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+`;
+
+const StyledInput = styledNative.TextInput`
+  flex: 1;
+  height: 44px;
+  font-size: 16px;
+  background-color: #ffffff;
+  border-radius: 16px;
+  border: 2px solid #2b2d42;
+  margin-right: 16px;
+  padding-left: 16px;
+`;
+
+export const ThemeButton = styledNative.TouchableOpacity``;
