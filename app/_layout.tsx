@@ -1,4 +1,5 @@
 import { SearchProvider } from '@/components/SearchProvider';
+import { WelcomePopup } from '@/components/WelcomePopup';
 import {
   DarkTheme,
   DefaultTheme,
@@ -23,6 +24,7 @@ export default function RootLayout() {
     <Host>
       <SearchProvider>
         <ThemeProvider value={theme === 'dark' ? DarkTheme : DefaultTheme}>
+          <WelcomePopup />
           <Stack>
             <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
             <Stack.Screen name="+not-found" />
