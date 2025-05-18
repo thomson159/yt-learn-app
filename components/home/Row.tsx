@@ -5,7 +5,7 @@ import { ScrollView, View } from 'react-native';
 import styledNative from 'styled-components/native';
 import { ThemedText } from '../basic/ThemedText';
 import { ThemedView } from '../basic/ThemedView';
-import { ThemeButton } from '../InnerLayout';
+import { ThemeButton } from '../Navbar';
 import { useSearch } from '../SearchProvider';
 import { Item } from './Item';
 
