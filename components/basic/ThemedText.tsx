@@ -18,8 +18,10 @@ export function ThemedText({
         type === 'default' ? styles.default : undefined,
         type === 'title' ? styles.title : undefined,
         type === 'date' ? styles.date : undefined,
-        type === 'defaultBold' ? styles.defaultBold : undefined,
-        type === 'defaultBig' ? styles.defaultBig : undefined,
+        type === 'bold' ? styles.bold : undefined,
+        type === 'big' ? styles.big : undefined,
+        type === 'bigBold' ? styles.bigBold : undefined,
+        type === 'small' ? styles.small : undefined,
         type === 'decorationLine' ? styles.decorationLine : undefined,
         style,
       ]}
@@ -32,39 +34,35 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 18,
     fontWeight: 600,
-    lineHeight: 24,
-    letterSpacing: 0.2,
   },
   decorationLine: {
     fontSize: 12,
-    lineHeight: 24,
     fontWeight: 400,
-    letterSpacing: 0.2,
     textDecorationLine: 'underline',
   },
   date: {
     fontSize: 10,
-    lineHeight: 24,
-    letterSpacing: 0.2,
     fontWeight: 400,
   },
   default: {
     fontSize: 12,
-    lineHeight: 12,
     fontWeight: 500,
-    letterSpacing: 0.2,
   },
-  defaultBig: {
+  big: {
     fontSize: 15,
-    lineHeight: 12,
     fontWeight: 400,
-    letterSpacing: 0.2,
   },
-  defaultBold: {
+  bold: {
     fontSize: 12,
-    lineHeight: 12,
     fontWeight: 700,
-    letterSpacing: 0.2,
+  },
+  bigBold: {
+    fontSize: 14,
+    fontWeight: 700,
+  },
+  small: {
+    fontSize: 10,
+    fontWeight: 600,
   },
 });
 

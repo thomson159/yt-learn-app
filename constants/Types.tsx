@@ -17,6 +17,9 @@ export type Item = {
   title: string;
   thumbnail: string;
   channel: string;
+  description: string;
+  likeCount: string;
+  viewCount: string;
 };
 
 export type ItemsByCategory = {
@@ -30,21 +33,28 @@ export type ThemedTextProps = TextProps & {
     | 'default'
     | 'title'
     | 'date'
-    | 'defaultBold'
-    | 'defaultBig'
-    | 'decorationLine';
+    | 'bold'
+    | 'big'
+    | 'decorationLine'
+    | 'small'
+    | 'bigBold';
 };
 
 export type YouTubeVideo = {
   snippet: {
     publishTime: string;
     title: string;
+    description: string;
     channelTitle: string;
     thumbnails: {
       high: {
         url: string;
       };
     };
+  };
+  statistics: {
+    likeCount: string;
+    viewCount: string;
   };
 };
 

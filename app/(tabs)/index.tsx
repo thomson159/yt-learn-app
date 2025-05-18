@@ -22,8 +22,8 @@ export default function HomeScreen() {
 
 const ViewWrapper = styledNative.View`
   padding-top: 108px;
-  margin-top: 10px;
   padding-bottom: 90px;
+  margin-top: 10px;
   background-color: #fff;
   min-height: 100%;
 `;

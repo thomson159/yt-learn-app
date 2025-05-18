@@ -10,6 +10,7 @@ export async function searchVideos(query: string): Promise<YouTubeVideo[]> {
       snippet: {
         publishTime: '2023-01-01T00:00:00Z',
         title: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s "${query}" #1`,
+        description: `Description for video 1 with query "${query}"`,
         thumbnails: {
           high: {
             url: 'https://ichef.bbci.co.uk/ace/standard/976/cpsprodpb/14235/production/_100058428_mediaitem100058424.jpg',
@@ -17,17 +18,26 @@ export async function searchVideos(query: string): Promise<YouTubeVideo[]> {
         },
         channelTitle: 'Mock Channel 1',
       },
+      statistics: {
+        likeCount: '123',
+        viewCount: '4567',
+      },
     },
     {
       snippet: {
         publishTime: '2023-01-02T00:00:00Z',
         title: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s "${query}" #2`,
+        description: `Description for video 2 with query "${query}"`,
         thumbnails: {
           high: {
             url: 'https://ichef.bbci.co.uk/ace/standard/976/cpsprodpb/14235/production/_100058428_mediaitem100058424.jpg',
           },
         },
         channelTitle: 'Mock Channel 2',
+      },
+      statistics: {
+        likeCount: '456',
+        viewCount: '7890',
       },
     },
   ];

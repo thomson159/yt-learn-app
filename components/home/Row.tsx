@@ -5,7 +5,6 @@ import { ScrollView, View } from 'react-native';
 import styledNative from 'styled-components/native';
 import { ThemedText } from '../basic/ThemedText';
 import { ThemedView } from '../basic/ThemedView';
-import { ThemeButton } from '../Navbar';
 import { useSearch } from '../SearchProvider';
 import { Item } from './Item';
 
@@ -42,7 +41,17 @@ export function Row({ title, items }: Props) {
       >
         <Panel>
           {items.map((item, index) => (
-            <Item key={index} item={item} />
+            <ThemeButton
+              key={index}
+              onPress={() => {
+                router.push({
+                  pathname: '/video',
+                  params: item,
+                });
+              }}
+            >
+              <Item item={item} />
+            </ThemeButton>
           ))}
         </Panel>
       </ScrollView>
@@ -63,3 +72,5 @@ const Panel = styledNative.View`
   padding-left: 24px;
   padding-right: 24px;
 `;
+
+const ThemeButton = styledNative.TouchableOpacity``;

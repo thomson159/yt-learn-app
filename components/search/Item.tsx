@@ -32,12 +32,12 @@ const Thumbnail = styledNative(Image)`
   height: 200px;
 `;
 
-const ChannelText = styledNative(ThemedText).attrs({ type: 'defaultBold' })`
+const ChannelText = styledNative(ThemedText).attrs({ type: 'bold' })`
   margin-top: 16px;
   margin-bottom: 8px;
 `;
 
-const DescriptionText = styledNative(ThemedText).attrs({ type: 'defaultBig' })`
+const DescriptionText = styledNative(ThemedText).attrs({ type: 'big' })`
   margin-top: 2px;
 `;
 

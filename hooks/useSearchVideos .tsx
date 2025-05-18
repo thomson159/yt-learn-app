@@ -10,7 +10,6 @@ export function useSearchVideos() {
   useEffect(() => {
     if (!query.trim()) {
       setItems([]);
-
       return;
     }
 
@@ -22,6 +21,9 @@ export function useSearchVideos() {
           title: video.snippet.title,
           thumbnail: video.snippet.thumbnails.high.url,
           channel: video.snippet.channelTitle,
+          description: video.snippet.description,
+          likeCount: video.statistics?.likeCount ?? '0',
+          viewCount: video.statistics?.viewCount ?? '0',
         }));
 
         setItems(formatted);

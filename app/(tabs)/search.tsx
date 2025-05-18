@@ -29,6 +29,7 @@ export default function SearchScreen() {
 const ViewWrapper = styledNative.View`
   padding-top: 114px;
   padding-bottom: 106px;
+  margin-top: 12px;
   background-color: #fff;
   min-height: 100%;
 `;
