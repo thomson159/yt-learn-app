@@ -2,6 +2,7 @@ import { useSearch } from '@/components/SearchProvider';
 import { IconSymbol } from '@/components/ui/IconSymbol';
 import { InnerLayoutProps } from '@/constants/Types';
 import { useRouter } from 'expo-router';
+import { TouchableOpacity } from 'react-native';
 import styledNative from 'styled-components/native';
 
 export function Navbar({
@@ -27,13 +28,13 @@ export function Navbar({
           router.push('/search');
         }}
       />
-      <ThemeButton onPress={toggleTheme}>
+      <TouchableOpacity onPress={toggleTheme}>
         <IconSymbol
           size={28}
           name={theme === 'dark' ? 'sun.max.fill' : 'moon.fill'}
           color="black"
         />
-      </ThemeButton>
+      </TouchableOpacity>
     </NavWrapper>
   );
 }
@@ -62,5 +63,3 @@ const StyledInput = styledNative.TextInput`
   margin-right: 16px;
   padding-left: 16px;
 `;
-
-export const ThemeButton = styledNative.TouchableOpacity``;

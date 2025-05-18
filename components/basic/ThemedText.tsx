@@ -22,6 +22,7 @@ export function ThemedText({
         type === 'big' ? styles.big : undefined,
         type === 'bigBold' ? styles.bigBold : undefined,
         type === 'small' ? styles.small : undefined,
+        type === 'light' ? styles.light : undefined,
         type === 'decorationLine' ? styles.decorationLine : undefined,
         style,
       ]}
@@ -42,6 +43,10 @@ const styles = StyleSheet.create({
   },
   date: {
     fontSize: 10,
+    fontWeight: 400,
+  },
+  light: {
+    fontSize: 12,
     fontWeight: 400,
   },
   default: {

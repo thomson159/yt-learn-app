@@ -1,7 +1,7 @@
 import { Item as ItemType } from '@/constants/Types';
 import { useRouter } from 'expo-router';
 import React from 'react';
-import { ScrollView, View } from 'react-native';
+import { ScrollView, TouchableOpacity, View } from 'react-native';
 import styledNative from 'styled-components/native';
 import { ThemedText } from '../basic/ThemedText';
 import { ThemedView } from '../basic/ThemedView';
@@ -25,14 +25,14 @@ export function Row({ title, items }: Props) {
         }}
       >
         <ThemedText type="title">{title}</ThemedText>
-        <ThemeButton
+        <TouchableOpacity
           onPress={() => {
             setQuery(title);
             router.push('/search');
           }}
         >
           <ThemedText type="decorationLine">Show more</ThemedText>
-        </ThemeButton>
+        </TouchableOpacity>
       </View>
       <ScrollView
         horizontal
@@ -41,7 +41,7 @@ export function Row({ title, items }: Props) {
       >
         <Panel>
           {items.map((item, index) => (
-            <ThemeButton
+            <TouchableOpacity
               key={index}
               onPress={() => {
                 router.push({
@@ -51,7 +51,7 @@ export function Row({ title, items }: Props) {
               }}
             >
               <Item item={item} />
-            </ThemeButton>
+            </TouchableOpacity>
           ))}
         </Panel>
       </ScrollView>
@@ -72,5 +72,3 @@ const Panel = styledNative.View`
   padding-left: 24px;
   padding-right: 24px;
 `;
-
-const ThemeButton = styledNative.TouchableOpacity``;

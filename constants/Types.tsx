@@ -37,6 +37,7 @@ export type ThemedTextProps = TextProps & {
     | 'big'
     | 'decorationLine'
     | 'small'
+    | 'light'
     | 'bigBold';
 };
 
@@ -63,4 +64,14 @@ export type InnerLayoutProps = {
   toggleTheme: () => void;
   inputValue: string;
   setInputValue: (val: string) => void;
+};
+
+export type SortOption =
+  | 'Upload date: latest'
+  | 'Upload date: oldest'
+  | 'Most popular';
+
+export type ItemType = {
+  date: string;
+  viewCount: string;
 };
