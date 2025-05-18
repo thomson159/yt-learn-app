@@ -23,13 +23,13 @@ export default function SearchScreen() {
   return (
     <ViewWrapper>
       <HeaderWrapper>
-        <ThemedText type="date">
+        <FullWidthText type="date">
           {sortedItems.length} result found for: &quot;{query}&quot;
-        </ThemedText>
+        </FullWidthText>
         <TouchableOpacity onPress={() => setShowSortPopup(true)}>
-          <ThemedText type="light">
+          <SortText type="light">
             Sort by: <SortByBold>{sortBy}</SortByBold>
-          </ThemedText>
+          </SortText>
         </TouchableOpacity>
       </HeaderWrapper>
       <ScrollView
@@ -57,17 +57,26 @@ export default function SearchScreen() {
 
 const ViewWrapper = styledNative.View`
   padding-top: 114px;
-  padding-bottom: 94px;
-  background-color: #fff;
+  padding-bottom: 120px;
+  background-color: #FFFFFF;
   min-height: 100%;
 `;
 
 const HeaderWrapper = styledNative.View`
-  flex-direction: row;
-  justify-content: space-between;
+  flex-direction: column;
   padding-left: 24px;
   padding-right: 24px;
   margin-bottom: 8px;
+`;
+
+const FullWidthText = styledNative(ThemedText)`
+  width: 100%;
+`;
+
+const SortText = styledNative(ThemedText)`
+  width: 100%;
+  text-align: right;
+  margin-top: 4px;
 `;
 
 const SortByBold = styledNative.Text`

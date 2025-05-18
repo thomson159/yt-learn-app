@@ -22,9 +22,9 @@ export default function RootLayout() {
 
   return (
     <Host>
+      <WelcomePopup />
       <SearchProvider>
         <ThemeProvider value={theme === 'dark' ? DarkTheme : DefaultTheme}>
-          <WelcomePopup />
           <Stack>
             <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
             <Stack.Screen name="+not-found" />

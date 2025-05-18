@@ -52,10 +52,10 @@ const PopupContainer = styledNative.View`
 `;
 
 const PopupTitle = styledNative.Text`
-  font-weight: bold;
+  font-weight: 600;
   font-size: 18px;
   margin-bottom: 32px;
-  color: white;
+  color: #FFFFFF;
 `;
 
 const RadioOption = styledNative.TouchableOpacity`
@@ -64,22 +64,20 @@ const RadioOption = styledNative.TouchableOpacity`
   margin-bottom: 24px;
 `;
 
-const RadioCircle = styledNative.View.withConfig({
-  shouldForwardProp: (prop: any) => prop !== 'selected',
-})<{ selected: boolean }>`
-  width: 20px;
-  height: 20px;
-  border-radius: 10px;
+const RadioCircle = styledNative.View<{ selected: boolean }>`
+  width: 24px;
+  height: 24px;
+  border-radius: 20px;
   border-width: 2px;
-  border-color: white;
+  border-color: #FFFFFF;
   margin-right: 12px;
-  background-color: ${({ selected }: any) =>
-    selected ? '#2B2D42' : 'transparent'};
+  background-color: ${({ selected }: { selected: boolean }) => (selected ? '#2B2D42' : 'transparent')};
 `;
 
 const RadioLabel = styledNative.Text`
-  font-size: 16px;
-  color: white;
+  font-size: 14px;
+  font-weight: 400;
+  color: #FFFFFF;
 `;
 
 const ConfirmButton = styledNative.TouchableOpacity`
@@ -91,8 +89,9 @@ const ConfirmButton = styledNative.TouchableOpacity`
 `;
 
 const ConfirmButtonText = styledNative.Text`
-  color: white;
-  font-weight: bold;
+  color: #FFFFFF;
+  font-size: 14px;
+  font-weight: 600;
 `;
 
 const PopupOverlay = styledNative.View`

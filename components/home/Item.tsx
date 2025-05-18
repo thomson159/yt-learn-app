@@ -11,9 +11,7 @@ export function Item({ item }: Props) {
       <ThemedText type="default" numberOfLines={2} ellipsizeMode="tail">
         {item.title}
       </ThemedText>
-      <ThemedText type="date" style={{ textAlign: 'right' }}>
-        {formatDate(item.date)}
-      </ThemedText>
+      <DateText type="date">{formatDate(item.date)}</DateText>
     </ItemWrapper>
   );
 }
@@ -28,4 +26,9 @@ const Thumbnail = styledNative(Image)`
   margin-bottom: 8px;
   width: 180px;
   height: 112px;
+`;
+
+const DateText = styledNative(ThemedText)`
+  text-align: right;
+  margin-top: 8px;
 `;

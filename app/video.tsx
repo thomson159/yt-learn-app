@@ -42,7 +42,7 @@ export default function VideoSreen() {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: 'white',
+    backgroundColor: '#FFFFFF',
     minHeight: '100%',
     padding: 24,
   },

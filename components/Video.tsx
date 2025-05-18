@@ -5,7 +5,7 @@ export function Video({ item }: Props) {
   return (
     <View
       style={{
-        backgroundColor: 'white',
+        backgroundColor: '#FFFFFF',
         minHeight: '100%',
         zIndex: 2,
         top: 0,
