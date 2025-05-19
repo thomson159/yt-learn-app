@@ -17,7 +17,7 @@ import 'react-native-reanimated';
 export default function RootLayout() {
   const [theme] = useState<'dark' | 'light'>('light');
   const [loaded] = useFonts({
-    SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
+    SpaceMono: require('../assets/fonts/Poppins-Regular.ttf'),
   });
 
   if (!loaded) return null;
