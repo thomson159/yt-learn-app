@@ -1,5 +1,5 @@
-import { searchVideos } from '@/api/youtubeApi';
-// import { searchVideos } from '@/api/youtubeApiMock';
+// import { searchVideos } from '@/api/youtubeApi';
+import { searchVideos } from '@/api/youtubeApiMock';
 import { useSearch } from '@/components/SearchProvider';
 import { Item, YouTubeVideo } from '@/constants/Types';
 import { useEffect, useState } from 'react';

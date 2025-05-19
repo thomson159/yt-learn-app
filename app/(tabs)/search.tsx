@@ -7,12 +7,14 @@ import { SortPopup } from '@/components/SortPopup';
 import { getSortedItems } from '@/constants/SortItems';
 import { Item as ItemType, SortOption } from '@/constants/Types';
 import { useSearchVideos } from '@/hooks/useSearchVideos ';
+import { useRouter } from 'expo-router';
 import React, { useMemo, useState } from 'react';
 import { ScrollView, TouchableOpacity } from 'react-native';
 import styledNative from 'styled-components/native';
 
 export default function SearchScreen() {
   const items = useSearchVideos();
+  const router = useRouter();
   const { query } = useSearch();
   const [tempSortBy, setTempSortBy] = useState<SortOption>('Most popular');
   const [sortBy, setSortBy] = useState<SortOption>('Most popular');
@@ -39,7 +41,17 @@ export default function SearchScreen() {
         showsHorizontalScrollIndicator={false}
       >
         {sortedItems.map((item: ItemType, index: number) => (
-          <Item key={index} item={item} />
+          <TouchableOpacity
+            key={index}
+            onPress={() => {
+              router.push({
+                pathname: '/video',
+                params: item,
+              });
+            }}
+          >
+            <Item key={index} item={item} />
+          </TouchableOpacity>
         ))}
       </ScrollView>
       {showSortPopup && (

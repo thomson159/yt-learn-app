@@ -14,9 +14,9 @@ import VideoHeader from '@/components/video/VideoHeader';
 import { Item, ItemStats } from '@/constants/Types';
 import { useFetchVideoStats } from '@/hooks/useFetchVideoStats';
 import { useLocalSearchParams } from 'expo-router';
-import { useRef, useState } from 'react';
-// import { useState } from 'react';
-import Video, { VideoRef } from 'react-native-video';
+// import { useRef, useState } from 'react';
+import { useState } from 'react';
+// import Video, { VideoRef } from 'react-native-video';
 import styledNative from 'styled-components/native';
 
 export default function VideoSreen() {
@@ -24,18 +24,18 @@ export default function VideoSreen() {
   const stats: ItemStats = useFetchVideoStats(params.id);
   const [activeTab, setActiveTab] = useState<'details' | 'notes'>('details');
 
-  const videoRef = useRef<VideoRef>(null);
-  const background = require('../assets/broadchurch.mp4');
+  // const videoRef = useRef<VideoRef>(null);
+  // const background = require('../assets/broadchurch.mp4');
 
   return (
     <Container>
-      <Video
+      {/* <Video
         source={background}
         ref={videoRef}
         style={{ width: '100%', height: 200, marginBottom: 24 }}
         controls
         resizeMode="contain"
-      />
+      /> */}
       <VideoHeader title={params.title} channel={params.channel} />
       <TabsRow activeTab={activeTab} setActiveTab={setActiveTab} />
       {activeTab === 'details' && (

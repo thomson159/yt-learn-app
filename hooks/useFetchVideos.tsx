@@ -1,5 +1,5 @@
-import { searchVideos } from '@/api/youtubeApi';
-// import { searchVideos } from '@/api/youtubeApiMock';
+// import { searchVideos } from '@/api/youtubeApi';
+import { searchVideos } from '@/api/youtubeApiMock';
 import { queries } from '@/constants/Consts';
 import { capitalize } from '@/constants/Fns';
 import { ItemsByCategory, YouTubeVideo } from '@/constants/Types';

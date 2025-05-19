@@ -45,7 +45,7 @@ Render the Video component only on supported platforms (web, iOS, Android). This
 
 ### 2.1. Appropriate imports
 
-⚠️ If you want to run the application on real data from yt go to: `./hooks/useFetchVideos.tsx`, `./hooks/useSearchVideos.tsx`, `./hooks/useFetchVideoStats.tsx` and use the appropriate imports.
+⚠️ If you want to run the application on real data from yt or mock data go to: `./hooks/useFetchVideos.tsx`, `./hooks/useSearchVideos.tsx`, `./hooks/useFetchVideoStats.tsx` and use the appropriate imports.
 
 ### 2.2. Add your `YOUTUBE_API_KEY` in `config.ts`
 
