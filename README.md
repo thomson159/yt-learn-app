@@ -79,7 +79,8 @@ Testing the Video component was very challenging for me, as I only have a Lenovo
 
 ### Optional:
 
-✅ Sorting search list (latest, oldest). ⚠️ (most popular)
+✅ Sorting search list (latest, oldest).
+⚠️ (most popular) - Sorting by 'Most popular' was commented out because it would require changes to the API logic, and implementing it was optional for the task.
 
 ❌ Settings screen with notifications.
 

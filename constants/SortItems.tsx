@@ -1,3 +1,6 @@
+// Sorting by 'Most popular' was commented out because it would require changes to the API logic,
+// and implementing it was optional for the task.
+
 import { Item, SortOption } from '@/constants/Types';
 
 export const getSortedItems = (
@@ -14,6 +17,8 @@ export const getSortedItems = (
     return [...items].sort(
       (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime(),
     );
+  } else if (sortBy === 'Most popular') {
+    return [...items];
   }
   // else if (sortBy === 'Most popular') {
   //   return [...items].sort((a, b) => Number(b.viewCount) - Number(a.viewCount));
