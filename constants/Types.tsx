@@ -8,6 +8,8 @@ export type Queries = [
   'firebase',
 ];
 
+export type TabType = 'details' | 'notes';
+
 export type Props = {
   item: Item;
 };

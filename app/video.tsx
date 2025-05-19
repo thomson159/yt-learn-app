@@ -11,7 +11,8 @@ import NotesEditor from '@/components/video/NotesEditor';
 import TabsRow from '@/components/video/TabsRow';
 import VideoDetails from '@/components/video/VideoDetails';
 import VideoHeader from '@/components/video/VideoHeader';
-import { Item, ItemStats } from '@/constants/Types';
+import { details, notes } from '@/constants/Consts';
+import { Item, ItemStats, TabType } from '@/constants/Types';
 import { useFetchVideoStats } from '@/hooks/useFetchVideoStats';
 import { useLocalSearchParams } from 'expo-router';
 // import { useRef, useState } from 'react';
@@ -22,7 +23,7 @@ import styledNative from 'styled-components/native';
 export default function VideoSreen() {
   const params: Item = useLocalSearchParams();
   const stats: ItemStats = useFetchVideoStats(params.id);
-  const [activeTab, setActiveTab] = useState<'details' | 'notes'>('details');
+  const [activeTab, setActiveTab] = useState<TabType>(details);
 
   // const videoRef = useRef<VideoRef>(null);
   // const background = require('../assets/broadchurch.mp4');
@@ -38,14 +39,14 @@ export default function VideoSreen() {
       /> */}
       <VideoHeader title={params.title} channel={params.channel} />
       <TabsRow activeTab={activeTab} setActiveTab={setActiveTab} />
-      {activeTab === 'details' && (
+      {activeTab === details && (
         <VideoDetails
           description={params.description}
           likeCount={stats.likeCount}
           viewCount={stats.viewCount}
         />
       )}
-      {activeTab === 'notes' && <NotesEditor params={params} />}
+      {activeTab === notes && <NotesEditor params={params} />}
     </Container>
   );
 }

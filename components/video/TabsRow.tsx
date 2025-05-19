@@ -1,23 +1,25 @@
+import { details, notes } from '@/constants/Consts';
+import { TabType } from '@/constants/Types';
 import styledNative from 'styled-components/native';
 
 export default function TabsRow({
   activeTab,
   setActiveTab,
 }: {
-  activeTab: 'details' | 'notes';
-  setActiveTab: (tab: 'details' | 'notes') => void;
+  activeTab: TabType;
+  setActiveTab: (tab: TabType) => void;
 }) {
   return (
     <Row>
       <TabButton
-        active={activeTab === 'details'}
-        onPress={() => setActiveTab('details')}
+        active={activeTab === details}
+        onPress={() => setActiveTab(details)}
       >
         <TabText>Details</TabText>
       </TabButton>
       <TabButton
-        active={activeTab === 'notes'}
-        onPress={() => setActiveTab('notes')}
+        active={activeTab === notes}
+        onPress={() => setActiveTab(notes)}
       >
         <TabText>Notes</TabText>
       </TabButton>
