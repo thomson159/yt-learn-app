@@ -3,7 +3,7 @@ import { YouTubeVideoStats } from '@/constants/Types';
 import axios from 'axios';
 import { YOUTUBE_API_KEY } from '../config';
 
-export async function searchVideosStats(
+export async function fetchVideoStats(
   videoId: string,
 ): Promise<YouTubeVideoStats> {
   try {

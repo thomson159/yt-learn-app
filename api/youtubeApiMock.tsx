@@ -21,10 +21,6 @@ export async function searchVideos(query: string): Promise<YouTubeVideo[]> {
         },
         channelTitle: 'Mock Channel 1',
       },
-      // statistics: {
-      //   likeCount: '123',
-      //   viewCount: '100',
-      // },
     },
     {
       id: {
@@ -41,10 +37,6 @@ export async function searchVideos(query: string): Promise<YouTubeVideo[]> {
         },
         channelTitle: 'Mock Channel 2',
       },
-      // statistics: {
-      //   likeCount: '456',
-      //   viewCount: '3000',
-      // },
     },
     {
       id: {
@@ -61,10 +53,6 @@ export async function searchVideos(query: string): Promise<YouTubeVideo[]> {
         },
         channelTitle: 'Mock Channel 3',
       },
-      // statistics: {
-      //   likeCount: '789',
-      //   viewCount: '10',
-      // },
     },
   ];
 }

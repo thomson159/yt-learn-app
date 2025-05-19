@@ -1,8 +1,9 @@
-import { searchVideosStats } from '@/api/youtubeApiStats';
+// import { fetchVideoStats } from '@/api/youtubeApiStats';
+import { fetchVideoStats } from '@/api/youtubeApiStatsMock';
 import { ItemStats } from '@/constants/Types';
 import { useEffect, useState } from 'react';
 
-export function useSearchVideosStats(videoId: string) {
+export function useFetchVideoStats(videoId: string) {
   const [stats, setStats] = useState<ItemStats>({
     likeCount: '0',
     viewCount: '0',
@@ -19,7 +20,7 @@ export function useSearchVideosStats(videoId: string) {
 
     async function fetchStats() {
       try {
-        const data = await searchVideosStats(videoId);
+        const data = await fetchVideoStats(videoId);
         setStats(data);
       } catch (error) {
         console.error('Stats fetch error:', error);

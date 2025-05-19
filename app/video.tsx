@@ -3,7 +3,7 @@ import TabsRow from '@/components/video/TabsRow';
 import VideoDetails from '@/components/video/VideoDetails';
 import VideoHeader from '@/components/video/VideoHeader';
 import { Item, ItemStats } from '@/constants/Types';
-import { useSearchVideosStats } from '@/hooks/useSearchVideosStats';
+import { useFetchVideoStats } from '@/hooks/useFetchVideoStats';
 import { useLocalSearchParams } from 'expo-router';
 import { useState } from 'react';
 import styledNative from 'styled-components/native';
@@ -11,7 +11,7 @@ import styledNative from 'styled-components/native';
 
 export default function VideoSreen() {
   const params: Item = useLocalSearchParams();
-  const stats: ItemStats = useSearchVideosStats(params.id);
+  const stats: ItemStats = useFetchVideoStats(params.id);
   const [activeTab, setActiveTab] = useState<'details' | 'notes'>('details');
 
   // Render the Video component only on supported platforms (web, iOS, Android).
