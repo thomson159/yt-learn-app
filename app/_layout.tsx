@@ -1,3 +1,5 @@
+// TODO: Theme system is not finished yet and requires further development and refinement.
+
 import { SearchProvider } from '@/components/SearchProvider';
 import { WelcomePopup } from '@/components/WelcomePopup';
 import {
@@ -13,7 +15,7 @@ import { Host } from 'react-native-portalize';
 import 'react-native-reanimated';
 
 export default function RootLayout() {
-  const [theme] = useState<'dark' | 'light'>('light'); // zmiana na dynamiczny
+  const [theme] = useState<'dark' | 'light'>('light');
   const [loaded] = useFonts({
     SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
   });

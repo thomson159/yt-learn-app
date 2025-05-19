@@ -12,7 +12,7 @@ import React, { useState } from 'react';
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
-  const [theme, setTheme] = useState<'dark' | 'light'>('light'); // dynamiczny
+  const [theme, setTheme] = useState<'dark' | 'light'>('light');
   const [inputValue, setInputValue] = useState('');
 
   const toggleTheme = () => setTheme(theme === 'dark' ? 'light' : 'dark');
@@ -21,7 +21,7 @@ export default function TabLayout() {
     <>
       <Navbar
         theme={theme}
-        setTheme={setTheme} // przekazujemy setter
+        setTheme={setTheme}
         toggleTheme={toggleTheme}
         inputValue={inputValue}
         setInputValue={setInputValue}
