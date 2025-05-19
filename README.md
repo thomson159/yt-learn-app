@@ -21,7 +21,7 @@ The app allows users to search, sort, and view video content in a user-friendly 
 npm install
 ```
 
-2. **Run the project**
+2. **Run the project (READ INFO BELOW BEFORE RUN!)**
 
 ```bash
 npx expo start
@@ -73,6 +73,7 @@ Render the Video component only on supported platforms (web, iOS, Android). This
 ✅ Video details screen with description
 
 ⚠️ Video details screen with video player (react-native-video), mini and fullscreen player modes.
+Testing the Video component was very challenging for me, as I only have a Lenovo computer running Ubuntu where I wrote the code, and an iPhone 13 Pro on which I tested the app.
 
 ✅ Privacy Policy link on the login screen.
 
@@ -97,12 +98,10 @@ Render the Video component only on supported platforms (web, iOS, Android). This
 
 5. Move YOUTUBE_API_KEY to environment variables (.env) for easier management and security.
 
----
-
 6. Match file extensions, use `.tsx` and `.ts` respectively.
 
 7. Theme system is not finished yet and requires further development and refinement.
 
----
-
 8. Unit tests
+
+9. Spash screen, logo, app name itp...

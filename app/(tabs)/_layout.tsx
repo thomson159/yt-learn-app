@@ -21,7 +21,6 @@ export default function TabLayout() {
     <>
       <Navbar
         theme={theme}
-        setTheme={setTheme}
         toggleTheme={toggleTheme}
         inputValue={inputValue}
         setInputValue={setInputValue}

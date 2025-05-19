@@ -72,7 +72,6 @@ export type InnerLayoutProps = {
   toggleTheme: () => void;
   inputValue: string;
   setInputValue: (val: string) => void;
-  setTheme: (theme: 'dark' | 'light') => void;
 };
 
 export type SortOption =

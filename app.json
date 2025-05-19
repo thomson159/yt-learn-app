@@ -16,7 +16,9 @@
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "edgeToEdgeEnabled": true
+      "edgeToEdgeEnabled": true,
+      "permissions": [],
+      "package": "com.thomson159.ytlearnapp"
     },
     "web": {
       "bundler": "metro",
@@ -38,6 +40,15 @@
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "assetBundlePatterns": [
+      "assets/*"
+    ],
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "8bf24294-acf5-4b5d-91f6-34990f51961b"
+      }
     }
   }
 }

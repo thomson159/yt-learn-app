@@ -1,5 +1,5 @@
-// import { fetchVideoStats } from '@/api/youtubeApiStats';
-import { fetchVideoStats } from '@/api/youtubeApiStatsMock';
+import { fetchVideoStats } from '@/api/youtubeApiStats';
+// import { fetchVideoStats } from '@/api/youtubeApiStatsMock';
 import { ItemStats } from '@/constants/Types';
 import { useEffect, useState } from 'react';
 

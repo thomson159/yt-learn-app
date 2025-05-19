@@ -10,7 +10,6 @@ export function Navbar({
   toggleTheme,
   inputValue,
   setInputValue,
-  setTheme,
 }: InnerLayoutProps) {
   const { setQuery } = useSearch();
   const router = useRouter();
@@ -46,7 +45,7 @@ const NavWrapper = styledNative.View`
   padding-top: 60px;
   padding-left: 24px;
   padding-right: 24px;
-  background-color: '#FFFFFF')};
+  background-color: '#FFFFFF';
   position: absolute;
   top: 0;
   left: 0;
