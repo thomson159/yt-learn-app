@@ -45,7 +45,7 @@ Render the Video component only on supported platforms (web, iOS, Android). This
 
 ### 2.1. Appropriate imports
 
-⚠️ If you want to run the application on real data from yt go to: `./hooks/useFetchVideos.tsx` and `./hooks/useSearchVideos.tsx` and use the appropriate imports.
+⚠️ If you want to run the application on real data from yt go to: `./hooks/useFetchVideos.tsx`, `./hooks/useSearchVideos.tsx`, `./hooks/useFetchVideoStats.tsx` and use the appropriate imports.
 
 ### 2.2. Add your `YOUTUBE_API_KEY` in `config.ts`
 
@@ -78,7 +78,7 @@ Render the Video component only on supported platforms (web, iOS, Android). This
 
 ### Optional:
 
-✅ Sorting search list (latest, oldest, most popular).
+✅ Sorting search list (latest, oldest). ⚠️ (most popular)
 
 ❌ Settings screen with notifications.
 
@@ -91,6 +91,7 @@ Render the Video component only on supported platforms (web, iOS, Android). This
 2. Consider adding a loading animation for better UX while waiting for API data reload.
 
 3. Sorting is currently done only on the frontend. Consider implementing sorting via API for better performance with large datasets.
+   ⚠️ Fix (most popular) sorting.
 
 4. Welcome view was quickly implemented as a popup. It would be better to make it a dedicated start screen so that the API and app data don't load in the background until the user clicks "Log in as guest".
 
