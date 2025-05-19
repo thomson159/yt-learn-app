@@ -3,6 +3,12 @@
 A mobile app built with **Expo + React Native + Expo Router** for browsing and watching educational YouTube videos.  
 The app allows users to search, sort, and view video content in a user-friendly interface.
 
+GitHub repo: https://github.com/thomson159/yt-learn-app
+
+App tested only on iPhone 13 Pro.
+
+Download Android app (.apk file) with full working version with react-native-video and connected real yt api data: https://expo.dev/artifacts/eas/vYx16vQP1KRZQwRudiTTmX.apk
+
 ## 🚀 Tech Stack
 
 - **React Native** (v0.79.2)
@@ -97,7 +103,7 @@ Testing the Video component was very challenging for me, as I only have a Lenovo
 
 4. Welcome view was quickly implemented as a popup. It would be better to make it a dedicated start screen so that the API and app data don't load in the background until the user clicks "Log in as guest".
 
-5. Move YOUTUBE_API_KEY to environment variables (.env) for easier management and security.
+5. Move `YOUTUBE_API_KEY` to environment variables (`.env`) for easier management and security.
 
 6. Match file extensions, use `.tsx` and `.ts` respectively.
 
@@ -106,3 +112,9 @@ Testing the Video component was very challenging for me, as I only have a Lenovo
 8. Unit tests
 
 9. Spash screen, logo, app name itp...
+
+## Autor
+
+Mateusz Białoń
+
+mateusz@bialon.dev
