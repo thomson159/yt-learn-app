@@ -5,7 +5,7 @@ import { Item } from '@/components/search/Item';
 import { useSearch } from '@/components/SearchProvider';
 import { SortPopup } from '@/components/SortPopup';
 import { getSortedItems } from '@/constants/SortItems';
-import { SortOption } from '@/constants/Types';
+import { Item as ItemType, SortOption } from '@/constants/Types';
 import { useSearchVideos } from '@/hooks/useSearchVideos ';
 import React, { useMemo, useState } from 'react';
 import { ScrollView, TouchableOpacity } from 'react-native';
@@ -38,7 +38,7 @@ export default function SearchScreen() {
         showsVerticalScrollIndicator={false}
         showsHorizontalScrollIndicator={false}
       >
-        {sortedItems.map((item: any, index: number) => (
+        {sortedItems.map((item: ItemType, index: number) => (
           <Item key={index} item={item} />
         ))}
       </ScrollView>

@@ -1,9 +1,9 @@
-import { ItemType, SortOption } from '@/constants/Types';
+import { Item, SortOption } from '@/constants/Types';
 
 export const getSortedItems = (
-  items: ItemType[] | undefined,
+  items: Item[] | undefined,
   sortBy: SortOption,
-): ItemType[] => {
+): Item[] => {
   if (!items) return [];
 
   if (sortBy === 'Upload date: latest') {
@@ -14,9 +14,10 @@ export const getSortedItems = (
     return [...items].sort(
       (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime(),
     );
-  } else if (sortBy === 'Most popular') {
-    return [...items].sort((a, b) => Number(b.viewCount) - Number(a.viewCount));
   }
+  // else if (sortBy === 'Most popular') {
+  //   return [...items].sort((a, b) => Number(b.viewCount) - Number(a.viewCount));
+  // }
 
   return items;
 };

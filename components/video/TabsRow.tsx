@@ -34,7 +34,7 @@ const Row = styledNative.View`
 const TabButton = styledNative.TouchableOpacity<{ active: boolean }>`
   flex: 1;
   border-bottom-width: 2px;
-  border-bottom-color: ${({ active }: any) => (active ? '#2B2D42' : 'lightgray')};
+  border-bottom-color: ${({ active }: { active: boolean }) => (active ? '#2B2D42' : 'lightgray')};
 `;
 
 const TabText = styledNative.Text`

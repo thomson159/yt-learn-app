@@ -40,13 +40,13 @@ export function Navbar({
   );
 }
 
-const NavWrapper = styledNative.View<{ theme: 'dark' | 'light' }>`
+const NavWrapper = styledNative.View`
   flex-direction: row;
   align-items: center;
   padding-top: 60px;
   padding-left: 24px;
   padding-right: 24px;
-  background-color: ${({ theme }: any) => (theme === 'dark' ? '#222' : '#fff')};
+  background-color: '#FFFFFF')};
   position: absolute;
   top: 0;
   left: 0;
