@@ -1,22 +1,29 @@
 import { ThemedText } from '@/components/basic/ThemedText';
 import { IconSymbol } from '@/components/ui/IconSymbol';
-import { Item } from '@/constants/Types';
 import styledNative from 'styled-components/native';
 
-export default function VideoDetails({ params }: { params: Item }) {
+export default function VideoDetails({
+  description,
+  likeCount,
+  viewCount,
+}: {
+  description: string;
+  likeCount: string;
+  viewCount: string;
+}) {
   return (
     <>
       <StyledLabel type="small">Description</StyledLabel>
-      <StyledText type="default">{params.description}</StyledText>
+      <StyledText type="default">{description}</StyledText>
       <StyledLabel type="small">Statistics</StyledLabel>
       <InfoRow>
         <StyledInfo>
           <IconSymbol size={15} name="tv.fill" color={'#FFFFFF'} />
-          <InfoText type="small">{params.viewCount} views</InfoText>
+          <InfoText type="small">{viewCount} views</InfoText>
         </StyledInfo>
         <StyledInfo>
           <IconSymbol size={15} name="hand.thumbsup.fill" color={'#FFFFFF'} />
-          <InfoText type="small">{params.likeCount} likes</InfoText>
+          <InfoText type="small">{likeCount} likes</InfoText>
         </StyledInfo>
       </InfoRow>
     </>

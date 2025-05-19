@@ -1,21 +1,26 @@
 import { BASE_URL } from '@/constants/Consts';
-import { YouTubeVideo } from '@/constants/Types';
+import { YouTubeVideoStats } from '@/constants/Types';
 import axios from 'axios';
 import { YOUTUBE_API_KEY } from '../config';
 
-export async function searchVideos(query: string): Promise<YouTubeVideo[]> {
+export async function searchVideosStats(
+  videoId: string,
+): Promise<YouTubeVideoStats> {
   try {
-    const response = await axios.get(`${BASE_URL}/search`, {
+    const response = await axios.get(`${BASE_URL}/videos`, {
       params: {
-        part: 'snippet',
-        q: query,
+        part: 'statistics',
+        id: videoId,
         key: YOUTUBE_API_KEY,
-        maxResults: 10,
-        type: 'video',
       },
     });
 
-    return response.data.items;
+    const stats = response.data.items[0]?.statistics;
+
+    return {
+      likeCount: stats?.likeCount ?? '0',
+      viewCount: stats?.viewCount ?? '0',
+    };
   } catch (error: any) {
     const data = error.response?.data;
 

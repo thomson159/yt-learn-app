@@ -19,6 +19,9 @@ export type Item = {
   thumbnail: string;
   channel: string;
   description: string;
+};
+
+export type ItemStats = {
   likeCount: string;
   viewCount: string;
 };
@@ -43,7 +46,9 @@ export type ThemedTextProps = TextProps & {
 };
 
 export type YouTubeVideo = {
-  id: string;
+  id: {
+    videoId: string;
+  };
   snippet: {
     publishTime: string;
     title: string;
@@ -55,10 +60,11 @@ export type YouTubeVideo = {
       };
     };
   };
-  statistics: {
-    likeCount: string;
-    viewCount: string;
-  };
+};
+
+export type YouTubeVideoStats = {
+  likeCount: string;
+  viewCount: string;
 };
 
 export type InnerLayoutProps = {

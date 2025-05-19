@@ -1,5 +1,5 @@
-import { searchVideos } from '@/api/youtubeApiMock';
-// import { searchVideos } from '@/api/youtubeApi';
+// import { searchVideos } from '@/api/youtubeApiMock';
+import { searchVideos } from '@/api/youtubeApi';
 import { queries } from '@/constants/Consts';
 import { capitalize } from '@/constants/Fns';
 import { ItemsByCategory, YouTubeVideo } from '@/constants/Types';
@@ -17,14 +17,12 @@ export function useFetchVideos() {
         queries.forEach((query, i) => {
           newItemsByCategory[capitalize(query)] = results[i].map(
             (video: YouTubeVideo) => ({
-              id: video.id,
+              id: video.id.videoId,
               date: video.snippet.publishTime,
               title: video.snippet.title,
               thumbnail: video.snippet.thumbnails.high.url,
               channel: video.snippet.channelTitle,
               description: video.snippet.description,
-              likeCount: video.statistics?.likeCount ?? '0',
-              viewCount: video.statistics?.viewCount ?? '0',
             }),
           );
         });
